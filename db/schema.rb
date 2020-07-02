@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_28_225208) do
+ActiveRecord::Schema.define(version: 2020_07_02_000814) do
 
   create_table "blood_groups", force: :cascade do |t|
     t.string "bloodType"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "component_id"
-    t.integer "component_types_id"
+    t.integer "component_type_id"
   end
 
   create_table "component_types", force: :cascade do |t|
@@ -30,6 +30,13 @@ ActiveRecord::Schema.define(version: 2020_06_28_225208) do
     t.string "product_code"
     t.string "component_number"
     t.date "expiration"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "blood_group_id"
+    t.integer "component_type_id"
+  end
+
+  create_table "users", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
